@@ -1,0 +1,13 @@
+# NASCAR Monte Carlo Predictor Dependencies
+
+# Core scientific computing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Optional: For enhanced data visualization (not required for core simulation)
+# matplotlib>=3.7.0
+# seaborn>=0.12.0
+
+# Optional: For Jupyter notebook exploration
+# jupyter>=1.0.0
+# ipython>=8.0.0
