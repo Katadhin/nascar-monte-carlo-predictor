@@ -1,5 +1,10 @@
 # NASCAR Monte Carlo Predictor
 
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![NumPy](https://img.shields.io/badge/numpy-1.24+-orange.svg)
+![Status](https://img.shields.io/badge/campaign-active-brightgreen.svg)
+
 Monte Carlo simulation engine for NASCAR race predictions. Built for the "Michael vs. Machine" campaign - AI vs human racing instinct across different track types.
 
 ## Overview
