@@ -22,10 +22,10 @@ This project pits 2x Daytona 500 winner **Michael Waltrip's racing instinct** ag
 |------|-------|--------------|------------|---------------|---------|
 | 1 | Daytona 500 | Ryan Blaney | Ryan Blaney | **Tyler Reddick** | Both ❌ |
 | 2 | Atlanta | Chase Elliott | Ross Chastain | **Tyler Reddick** | Both ❌ |
-| 3 | COTA | Shane van Gisbergen | TBD | TBD | Pending |
+| 3 | COTA | Shane van Gisbergen | Tyler Reddick | TBD | Pending |
 
 **Key Moments:**
-- Week 1: Mikey predicted Carson Hocevar would be competitive - **Hocevar LED THE FINAL LAP** before spinning
+-  Week 1: Mikey predicted Carson Hocevar would be competitive - **Hocevar LED THE FINAL LAP** before spinning
 - Week 2: Mikey's picks Ross Chastain (P3) and Carson Hocevar (P4) both finished in top 5
 - Machine accuracy: 0/10 on podium picks so far (learning in progress 🤖)
 
