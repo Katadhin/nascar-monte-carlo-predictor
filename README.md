@@ -1,110 +1,251 @@
 # NASCAR Monte Carlo Predictor
+## Michael vs Machine - 2026 Season
 
-![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![NumPy](https://img.shields.io/badge/numpy-1.24+-orange.svg)
-![Status](https://img.shields.io/badge/campaign-active-brightgreen.svg)
+A Monte Carlo simulation-based NASCAR Cup Series race prediction system competing against 2x Daytona 500 champion Michael Waltrip and MWB Communications Manager Jill.
 
-Monte Carlo simulation engine for NASCAR race predictions. Built for "Michael vs. Machine" campaign - AI vs human racing instinct across different track types.
-
-**Read the story:** [Can Racing Instinct Beat Algorithms? We're Testing It Every Week](https://medium.com/@katadhin/can-racing-instinct-beat-algorithms-were-testing-it-every-week-6cfb2217ae73)
+**Current Status: The Machine is 0-10 (winless)**
 
 ---
 
-## Campaign Results (2026 Season)
+## Season Standings (Through Week 10 - Talladega)
 
-| Week | Track | Machine Pick | Mikey Pick | Actual Winner | Result |
-|------|-------|-------------|-----------|---------------|--------|
-| 1 | Daytona 500 | Ryan Blaney | Ryan Blaney | Tyler Reddick | Both ❌ |
-| 2 | Atlanta | Chase Elliott | Ross Chastain | Tyler Reddick | Both ❌ |
-| 3 | COTA | Shane van Gisbergen | Tyler Reddick | Tyler Reddick | Machine ❌ Mikey ✅ |
-| 4 | Phoenix | *See below* | TBD | TBD | Pending |
-
-**Current Record:**
-- Machine: 0-3 on winners
-- Mikey: 1-3 on winners (called Reddick at COTA)
-
-### Phoenix Dual Model Predictions (Week 4)
-
-For the first time, the Machine generated **two different models** with conflicting predictions:
-
-**Model v2.0 (Hot Hand Formula):**
-- **Winner Pick:** Tyler Reddick - 22.58%
-- Philosophy: Momentum beats everything. Ride the hot streak.
-
-**Model v2.5 (Regression to Mean):**
-- **Winner Pick:** William Byron - 11.82%
-- Tyler Reddick: 7.22% (drops to #7)
-- Philosophy: Streaks always end. Respect statistical probability.
-
-**The Disagreement:** 15.36% delta on Reddick's win probability.
-
-**The Question:** Does momentum override statistical regression, or do long win streaks inevitably end? Sunday's race validates which approach works.
+| Predictor | Record | Win % | Method |
+|-----------|--------|-------|--------|
+| **Jill** | 1-2 | 33% | Staff meeting vibes |
+| **Mikey** | 2.5-8 | 27% | 30+ years experience |
+| **Machine** | 0-10 | 0% | 10,000 Monte Carlo simulations |
 
 ---
 
-## Model Evolution: v1.0 → v2.0 → v2.5
+## Race-by-Race Results
 
-### v1.0 (Weeks 1-3): Track Specialists
-- Track history: 25% of score
-- Recent form: only 10%
-- No streak adjustments
-- **Result: 0-3** (missed Reddick's momentum completely)
-
-### v2.0 (Week 4): Hot Hand Formula
-- Recent form: 30% (tripled)
-- Hot streak multiplier: 2.0x for 3+ wins
-- Points leader boost: 1.20x
-- **Phoenix: Reddick 22.58% (#1)**
-- Philosophy: Momentum beats everything
-
-### v2.5 (Week 4): Regression to Mean
-- Recent form: 30% (same)
-- Streak boost: 1.15x (reduced)
-- Pressure penalty: 0.88x for long streaks
-- Historical rarity: 0.88x (4 straight is rare)
-- **Phoenix: Byron 11.82% (#1), Reddick 7.22% (#7)**
-- Philosophy: Streaks end, regression matters
-
-**The Experiment:** Publishing both models to see which philosophy works better.
+| Week | Race | Winner | Machine Pick | Mikey Pick | Jill Pick | Result |
+|------|------|--------|--------------|------------|-----------|--------|
+| 1 | Daytona 500 | Tyler Reddick | Ryan Blaney ❌ | Ryan Blaney ❌ | - | Both wrong |
+| 2 | Atlanta | Tyler Reddick | Chase Elliott ❌ | Ross Chastain ❌ | - | Both wrong |
+| 3 | COTA | Tyler Reddick | Shane van Gisbergen ❌ | Tyler Reddick ✅ | - | Mikey wins |
+| 4 | Phoenix | Ryan Blaney | Tyler Reddick/William Byron ❌ | Tyler Reddick ❌ | - | Dual model fail |
+| 5 | Vegas | Denny Hamlin | William Byron (3rd) ❌ | Hamlin HM ✅ | - | Mikey 0.5 |
+| 6 | Darlington | Tyler Reddick | Denny Hamlin (11th) ❌ | Tyler Reddick ✅ | - | Mikey wins |
+| 7 | Martinsville | Chase Elliott | Denny Hamlin (2nd) ❌ | William Byron (5th) ❌ | - | Both had Elliott 5th |
+| 8 | Bristol | Ty Gibbs | Chase Elliott (spun) ❌ | Denny Hamlin (9th) ❌ | Ty Gibbs ✅ | Jill wins! |
+| 9 | Kansas | Tyler Reddick | Kyle Larson (2nd) ❌ | William Byron (7th) ❌ | Christopher Bell (wrecked) ❌ | Reddick wins again |
+| 10 | Talladega | Carson Hocevar | Joey Logano (Big One) ❌ | TBD | Chase Briscoe (Big One) ❌ | Chaos wins |
 
 ---
 
-## Track Type Adaptation
+## Model Evolution
 
-Different NASCAR tracks require completely different prediction models:
+### v1.0 - Weeks 1-3 (FAILED)
+- **Philosophy:** Pick favorites with high confidence
+- **Confidence:** 18%+ for top picks
+- **Result:** 0-3, overconfident
+- **Lesson:** NASCAR is too chaotic for certainty
 
-### Superspeedways (Daytona, Talladega)
-- Pack racing, drafting critical
-- Key attributes: Drafting IQ, Chaos survival, Plate racing skill
+### v2.0 - Week 4 Phoenix (FAILED)
+- **Change:** Added hot-hand formula (2.0x streak multiplier)
+- **Pick:** Tyler Reddick (continuing streak)
+- **Result:** Ryan Blaney won, streak ended
+- **Lesson:** Streaks regress to mean
 
-### Intermediate Ovals (Atlanta, Las Vegas)
-- Tire management crucial
-- Key attributes: Long-run speed, Tire wear, Handling
+### v2.5 - Weeks 4-5 (FAILED)
+- **Change:** Pressure penalties, regression to mean
+- **Confidence:** Flattened to ~15%
+- **Result:** Still 0-2
+- **Lesson:** Better philosophy, wrong picks
 
-### Road Courses (COTA, Sonoma)
-- Technical racing, specialists dominate
-- Key attributes: Road racing skill, Braking zones, Corner entry
+### v3.0 - Weeks 6-Present (0-6, BUT LEARNING)
+- **Changes:**
+  - Track-type specific data (short track only for short tracks)
+  - Flattened certainty (18.6% → 7.27% at Talladega)
+  - Chaos variance always on (±10% standard, ±40% Talladega)
+  - Reduced boosts (no runaway favorites)
+  - Specialist recognition (Larson at Kansas, Hendrick at Texas)
+  - Qualifying integration (10% weight)
 
-### Flat Tracks (Phoenix, Richmond)
-- Handling and tire management critical
-- Key attributes: Flat track skill, Short-run speed, Passing ability
+**Confidence Reduction:**
+- Darlington: 15.75%
+- Martinsville: 10.76%
+- Bristol: 9.39%
+- Kansas: 8.74%
+- Talladega: 7.27%
+- Texas: 8.97%
+
+**Progress Indicators:**
+- ✅ Had Elliott 5th at Martinsville (he won)
+- ✅ Picked Larson at Kansas (finished 2nd - closest yet)
+- ✅ Talladega: Predicted chaos, got chaos (Hocevar won, outside top 15)
 
 ---
 
-## Installation
-```bash
-git clone https://github.com/Katadhin/nascar-monte-carlo-predictor.git
-cd nascar-monte-carlo-predictor
-pip install -r requirements.txt
+## Key Campaign Moments
+
+### "AI Can Kiss My Butt" - Vegas Week 5
+Michael's pre-race quote before picking Blaney (who finished 16th). Hamlin won. Comedy gold.
+
+### "Mikey Changes Mind After Qualifying" - Darlington Week 6
+- Thursday: Presumed Hamlin pick
+- Friday: Watched qualifying, switched to Reddick
+- Machine: Mocked "recency bias"
+- Result: Reddick WON, Machine's Hamlin finished 11th
+- Lesson: Context > data
+
+### "Both Had Elliott 5th" - Martinsville Week 7
+Neither Mikey nor Machine picked Elliott #1. Both had him 5th. He won on pit strategy (short-pitted lap 261). Hamlin led 292 laps, lost. Strategy beats data.
+
+### "Jill Destroys Both Experts" - Bristol Week 8
+- Machine (10K simulations): Elliott ❌ (spun)
+- Mikey (30 years): Hamlin ❌ (9th)
+- Jill (staff meetings): Ty Gibbs ✅ (first career win)
+- Machine had Gibbs #11 (6.50%)
+- Staff meeting vibes > algorithms
+
+### "The Big One" - Talladega Week 10
+- Lap 115: 26-car crash (Bubba/Chastain contact)
+- Eliminated: Logano (Machine's pick), Larson, Byron, Reddick, Keselowski, Blaney
+- Winner: Carson Hocevar (first career win, outside Machine's top 15)
+- Machine predicted 70% chance of Big One ✅
+- Model was right to say "we have no idea"
+
+---
+
+## Technical Details
+
+**Model:** Monte Carlo simulation (10,000 iterations per race)
+
+**Inputs:**
+- Historical track performance
+- Recent form/momentum
+- Track-type specific data
+- Qualifying results (10% weight)
+- Team/manufacturer advantages
+- Specialist recognition
+
+**v3.0 Formula:**
+```python
+score = (
+    track_history * 0.25 +
+    track_type_speed * 0.20 +
+    tire_management * 0.15 +
+    long_run_speed * 0.15 +
+    late_race_execution * 0.10 +
+    track_specific_skill * 0.10 +
+    recent_form * 0.05
+)
+
+# Chaos variance
+chaos = random.uniform(0.90, 1.10)  # ±10%
+# Talladega exception: ±40%
+
+score *= chaos
 ```
+
+**Output:** Win probabilities for all drivers
+
+---
+
+## What We've Learned
+
+### 1. Uncertainty is Honesty
+Going from 18% confidence (v1.0) to 7% (Talladega) isn't failure - it's realism. NASCAR is chaotic.
+
+### 2. Context Beats Data
+Michael watching qualifying and switching picks beat 10,000 simulations. Experience captures what models can't.
+
+### 3. Simplicity Sometimes Wins
+Jill (1-2) picks drivers she "likes" after staff meetings. No data. Better record than the algorithm.
+
+### 4. Specialists Exist
+Larson at Kansas. Hendrick at Texas. The model learned to recognize track dominance, even if picks still failed.
+
+### 5. Chaos is Real
+Talladega proved it: "The Big One" eliminated half the field randomly. Model predicted chaos, got chaos. Being right about uncertainty is still being right.
+
+---
+
+## Week 11 Preview: Texas
+
+**For the first time, Mikey and The Machine agree:**
+
+**BOTH PICKED: Tyler Reddick #45**
+- 5 wins in 2026 (50% win rate)
+- Won Kansas last week
+- Won Texas 2022
+- Machine: 8.97% probability
+
+**JILL PICKED: Denny Hamlin #11**
+- 3 Texas wins
+- Machine has him #5 (7.78%)
+- Veteran play
+
+**The Alliance (Mikey + Machine) vs The Rebel (Jill)**
+
+Race: Sunday, May 3 | 3:30 PM ET | FS1
+
+---
+
+## Repository Structure
+
+```
+/simulators
+  /v1.0
+    - daytona_simulator_v1.py
+    - atlanta_simulator_v1.py
+    - cota_simulator_v1.py
+  /v2.0
+    - phoenix_simulator_v2.py (hot hand)
+  /v2.5
+    - phoenix_simulator_v2.5.py (regression)
+    - vegas_simulator_v2.5.py
+    - darlington_simulator_v2.5.py
+  /v3.0
+    - martinsville_simulator_v3.py (short track)
+    - bristol_simulator_v3.py (high-banked)
+    - kansas_simulator_v3.py (intermediate)
+    - talladega_simulator_v3.py (chaos mode)
+    - texas_simulator_v3.py (intermediate)
+
+/results
+  - weekly_results.csv
+  - season_standings.csv
+
+README.md
+```
+
+---
+
+## Follow Along
+
+- **Social:** Michael Waltrip Brands (Facebook, Twitter, Instagram, LinkedIn)
+- **Full transparency:** Every pick, every result, every failure
+- **Building in public:** Model iterations visible
+
+---
+
+## The Bottom Line
+
+**The Machine is 0-10.**
+
+But the learning is 10-0.
+
+AI isn't replacing human judgment in complex, chaotic systems. It's revealing where intuition still wins - and teaching us to build better models through humble failure.
 
 ---
 
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+MIT License - Feel free to use, modify, and learn from our mistakes.
 
 ---
 
-**Current Status:** Testing dual Phoenix models (v2.0 vs v2.5). Race day March 8, 2026. 🏁🤖
+## Contributing
+
+PRs welcome. Especially if you can help us get to 1-10.
+
+What would you model differently?
+
+---
+
+*Last updated: May 2, 2026*
+*Next race: Texas Motor Speedway - May 3, 2026*
+*The Machine: Still seeking first win*
