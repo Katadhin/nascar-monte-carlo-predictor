@@ -374,10 +374,10 @@ We're building in public and learning from our mistakes. PRs welcome, especially
 
 ## 📱 Follow the Campaign
 
-- 🏁 **Michael Waltrip Brands:** [Facebook](https://facebook.com/MichaelWaltripBrands) | [Twitter](https://twitter.com/MichaelWaltrip) | [Instagram](https://instagram.com/michaelwaltrip)
+- 🏁 **Michael Waltrip Brands:** [Facebook](https://facebook.com/MichaelWaltripBrands) | [Twitter/X](https://x.com/WaltripBrewing) | [Instagram](https://instagram.com/michaelwaltrip)
+- 🏆 **Michael Waltrip:** [Twitter/X](https://x.com/MW55)
+- 👤 **John Andrews:** [Twitter/X](https://x.com/Katadhin) | [LinkedIn](https://linkedin.com/in/johnandrewsnc) | [GitHub](https://github.com/Katadhin)
 - 📝 **Medium:** [Full Campaign Story](https://medium.com/@katadhin/can-racing-instinct-beat-algorithms-were-testing-it-every-week-6cfb2217ae73)
-- 💼 **LinkedIn:** [John Andrews](https://linkedin.com/in/johnandrewsnc)
-- 🐙 **GitHub:** [@Katadhin](https://github.com/Katadhin)
 
 **Weekly picks, results, and model updates posted every race week!**
 
@@ -438,7 +438,9 @@ Will we finally get one right? 🤞
 **Star this repo if you enjoy watching an AI learn the hard way** ⭐
 
 [![GitHub stars](https://img.shields.io/github/stars/Katadhin/nascar-monte-carlo-predictor?style=social)](https://github.com/Katadhin/nascar-monte-carlo-predictor)
-[![Follow @MichaelWaltrip](https://img.shields.io/twitter/follow/MichaelWaltrip?style=social)](https://twitter.com/MichaelWaltrip)
+[![Follow @WaltripBrewing](https://img.shields.io/twitter/follow/WaltripBrewing?style=social)](https://x.com/WaltripBrewing)
+[![Follow @MW55](https://img.shields.io/twitter/follow/MW55?style=social)](https://x.com/MW55)
+[![Follow @Katadhin](https://img.shields.io/twitter/follow/Katadhin?style=social)](https://x.com/Katadhin)
 
 **Next update:** Post-Texas results (Will it be 1-10 or 0-11? Place your bets!)
 
