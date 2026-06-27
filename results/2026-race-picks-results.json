@@ -1,0 +1,210 @@
+{
+  "season": 2026,
+  "campaign": "Michael vs Machine",
+  "status": "Week 18 - Sonoma Preview",
+  "current_standings": {
+    "jill": {
+      "name": "Jillian Camilleri",
+      "role": "Momentum Reader & Strategist",
+      "wins": 3,
+      "losses": 6,
+      "total": 9,
+      "percentage": 33.3,
+      "status": "LEADING ⭐"
+    },
+    "machine": {
+      "name": "The Machine",
+      "role": "Monte Carlo Algorithm",
+      "wins": 2,
+      "losses": 15,
+      "total": 17,
+      "percentage": 11.8,
+      "status": "BOUNCING BACK"
+    },
+    "mikey": {
+      "name": "Michael Waltrip",
+      "role": "Veteran Racing Legend",
+      "wins": 4,
+      "losses": 12,
+      "total": 16,
+      "percentage": 25.0,
+      "status": "STEADY"
+    }
+  },
+  "race_history": [
+    {
+      "week": 14,
+      "race": "Nashville Cracker Barrel 400",
+      "date": "2026-05-31",
+      "track": "Nashville Superspeedway",
+      "track_type": "Oval",
+      "actual_winner": "Denny Hamlin #11",
+      "story": "Hamlin starts from pole, penalized, sent to back lap 2, battles back, passes Bell on final lap",
+      "picks": {
+        "jill": {
+          "pick": "Christopher Bell #20",
+          "correct": false,
+          "placement": "2nd place - SO CLOSE"
+        },
+        "machine": {
+          "pick": "Ryan Blaney #12",
+          "confidence": 56.48,
+          "correct": false,
+          "placement": "8th place"
+        },
+        "mikey": {
+          "pick": "Denny Hamlin #11",
+          "correct": true
+        }
+      },
+      "records": {
+        "jill": "0-1",
+        "machine": "0-1",
+        "mikey": "1-0"
+      }
+    },
+    {
+      "week": 15,
+      "race": "Michigan FireKeepers Casino 400",
+      "date": "2026-06-07",
+      "track": "Michigan International Speedway",
+      "track_type": "Oval",
+      "actual_winner": "Denny Hamlin #11",
+      "story": "Hamlin wins back-to-back. Commanding victory by 11.11 seconds over Erik Jones. Bell wrecked in violent collision with Larson.",
+      "picks": {
+        "jill": {
+          "pick": "Denny Hamlin #11",
+          "quote": "All in on Denny back-to-back",
+          "correct": true
+        },
+        "machine": {
+          "pick": "Kyle Larson #5",
+          "confidence": 28.81,
+          "correct": false,
+          "placement": "4th place"
+        },
+        "mikey": {
+          "pick": "Christopher Bell #20",
+          "correct": false,
+          "placement": "DNF - wrecked"
+        }
+      },
+      "records": {
+        "jill": "1-1",
+        "machine": "0-2",
+        "mikey": "1-1"
+      },
+      "narrative": "Jill emerges as momentum reader. Hamlin erases 129-point deficit. Machine searching for answers."
+    },
+    {
+      "week": 16,
+      "race": "Pocono Tricky Triangle 400",
+      "date": "2026-06-14",
+      "track": "Pocono Raceway",
+      "track_type": "Road-like Oval (3 distinct corners)",
+      "actual_winner": "Denny Hamlin #11",
+      "story": "Hamlin completes three consecutive wins. 63rd career Cup win ties Kyle Busch all-time. Ties record for most consecutive wins.",
+      "picks": {
+        "jill": {
+          "pick": "Carson Hocevar #77",
+          "quote": "Three in a row is luck. Hurricane breaks the streak.",
+          "correct": false,
+          "reasoning": "Tried to pick psychology/probability angle - logic sound, execution wrong"
+        },
+        "machine": {
+          "pick": "Denny Hamlin #11",
+          "confidence": 23.13,
+          "correct": true,
+          "quote": "Corners are data."
+        },
+        "mikey": {
+          "pick": "TBD",
+          "status": "Unknown"
+        }
+      },
+      "records": {
+        "jill": "1-2",
+        "machine": "1-2",
+        "mikey": "TBD"
+      },
+      "narrative": "Machine bounces back. Jill shows sophisticated reasoning (three-in-a-row psychology) but loses. Algorithm solid on oval + road."
+    },
+    {
+      "week": 17,
+      "race": "Anduril 250 'Race the Base'",
+      "date": "2026-06-21",
+      "track": "Naval Base Coronado, San Diego",
+      "track_type": "Street Course (NEW - BRAND NEW, never raced in Cup Series)",
+      "actual_winner": "Corey Heim #67",
+      "story": "CHAOS. Part-time driver. 13th career start. FIRST CUP WIN. Beats Tyler Reddick in final laps. SVG wrecked Stage 1, finished 38th DNF.",
+      "picks": {
+        "jill": {
+          "pick": "Shane van Gisbergen #97",
+          "reasoning": "Legend. 6 of 7 road/street course wins. Defending champ.",
+          "correct": false,
+          "placement": "38th - DNF (wrecked Stage 1)"
+        },
+        "machine": {
+          "pick": "Chase Elliott #9",
+          "confidence": 23.35,
+          "correct": false,
+          "placement": "Outside top 5"
+        },
+        "mikey": {
+          "pick": "Shane van Gisbergen #97",
+          "quote": "SVG wins by a mile or 2.",
+          "correct": false,
+          "placement": "38th - DNF (wrecked Stage 1)"
+        }
+      },
+      "records": {
+        "jill": "1-3",
+        "machine": "1-3",
+        "mikey": "1-3"
+      },
+      "all_three_wrong": true,
+      "narrative": "THE TURNING POINT. All three predictors wrong. Underdog (Corey Heim - NOBODY expected) wins. Favorites crash (SVG wrecked). Street course chaos > all analysis. Algorithm humbled. Veteran experience questioned. Momentum irrelevant.",
+      "lessons_learned": {
+        "machine": "New tracks = unpredictable. Algorithm blind spot. Need v3.1 update: consistency beats dominance on NEW tracks.",
+        "jill": "Even the smartest reads fail on unpredictable tracks. Logic ≠ Execution.",
+        "mikey": "'39 years in racing and I didn't see THAT.' Veteran experience doesn't protect against chaos."
+      }
+    },
+    {
+      "week": 18,
+      "race": "Toyota/Save Mart 350",
+      "date": "2026-06-28",
+      "track": "Sonoma Raceway",
+      "track_type": "Traditional Road Course (ESTABLISHED - 1.99-mile, 12 turns, multi-elevation)",
+      "status": "PREVIEW - Race hasn't occurred",
+      "picks": {
+        "jill": {
+          "pick": "TBD",
+          "status": "Awaiting"
+        },
+        "machine": {
+          "pick": "Kyle Larson #5",
+          "confidence": 24.53,
+          "quote": "Code learned something. Algorithm adapted. Larson wins. Consistency over chaos.",
+          "reasoning": "2x Sonoma winner (2021, 2024). Local guy (Elk Grove). No recent DNFs. Consistency beats dominance on ESTABLISHED tracks.",
+          "algorithm_version": "v3.1",
+          "algorithm_change": "San Diego taught v3.0 that unpredictability rules. v3.1 learns: consistency > dominance on known tracks. Weighting shift."
+        },
+        "mikey": {
+          "pick": "TBD",
+          "status": "Awaiting"
+        }
+      },
+      "narrative": "REDEMPTION ARC. After San Diego chaos, Sonoma is ESTABLISHED traditional road course. Machine bets CONSISTENCY (Larson proven 2x winner) over DOMINANCE (SVG recent wins but San Diego DNF = reset). Algorithm v3.1 learning in real-time.",
+      "hypothesis": "Consistency beats dominance on established tracks (different from Pocono where dominance won). Algorithm adapting."
+    }
+  ],
+  "meta": {
+    "last_updated": "2026-06-27",
+    "campaign_status": "mid-season",
+    "weeks_completed": 4,
+    "weeks_remaining": 32,
+    "key_moment": "Week 17 San Diego - Corey Heim upset proves unpredictability > analysis",
+    "current_narrative": "Algorithm evolution v3.0 → v3.1 after San Diego chaos. Jill & Mikey adapting after failures. Sonoma as test of learning."
+  }
+}
