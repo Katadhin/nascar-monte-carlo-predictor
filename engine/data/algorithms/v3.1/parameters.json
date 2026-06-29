@@ -1,0 +1,41 @@
+{
+  "version": "v3.1",
+  "name": "San Diego Learning Update - Consistency Weighting",
+  "created": "2026-06-27",
+  "notes": "Post-San Diego chaos event. Learned: consistency beats dominance on established tracks.",
+  "seed": 42,
+  "bonuses": {
+    "road_specialty_weight": 0.05,
+    "dominance_weight": 0.06,
+    "braking_precision_weight": 0.03,
+    "consistency_weight": 0.04,
+    "local_knowledge_weight": 0.03,
+    "patience_weight": 0.02,
+    "adaptability_weight": 0.015
+  },
+  "penalties": {
+    "recent_dnf_penalty": 0.15
+  },
+  "track_specific": {
+    "established_track_bonus": 0.04,
+    "new_track_penalty": -0.05,
+    "street_course_dominance_penalty": -0.03
+  },
+  "changelog": {
+    "from_v3_0": [
+      "Added consistency_weight: 0.04 (reward steady performers on known tracks)",
+      "Added local_knowledge_weight: 0.03 (bonus for native region drivers)",
+      "Added recent_dnf_penalty: 0.15 (15% performance hit after crashes)",
+      "Added established_track_bonus: 0.04 (higher confidence on known tracks)",
+      "Added new_track_penalty: -0.05 (lower confidence on brand new tracks)",
+      "Added street_course_dominance_penalty: -0.03 (dominance doesn't help unpredictable courses)"
+    ]
+  },
+  "learning_events": {
+    "san_diego_week_17": {
+      "description": "Corey Heim (part-timer, 13th career start) wins first Cup race. All three predictors wrong. SVG (6 of 8 road wins, defending champ) wrecked Stage 1, DNF 38th.",
+      "lesson": "Unpredictability > specialist credentials on NEW tracks. Dominance ≠ Destiny.",
+      "algorithmic_response": "Weight consistency and recent performance. Penalize recent DNFs. Distinguish established vs new tracks."
+    }
+  }
+}

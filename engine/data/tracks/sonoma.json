@@ -1,0 +1,43 @@
+{
+  "track_name": "Sonoma Raceway",
+  "track_type": "traditional_road_course",
+  "location": "Sonoma, California",
+  "date": "2026-06-28",
+  "week": 18,
+  "race_name": "Toyota/Save Mart 350",
+  "distance_miles": 1.99,
+  "laps": 110,
+  "total_distance_miles": 218.9,
+  "avg_speed_mph": 110,
+  "lap_time_seconds": 64.6,
+  "stages": [
+    {"number": 1, "laps": 25},
+    {"number": 2, "laps": 30},
+    {"number": 3, "laps": 55}
+  ],
+  "physics": {
+    "caution_probability": 0.035,
+    "pit_window_laps": 35,
+    "fuel_window": 35,
+    "braking_events_per_lap": 12,
+    "elevation_changes": true,
+    "variance_percent": 2.0
+  },
+  "context": {
+    "established_track": true,
+    "defending_champion": "Shane van Gisbergen (2025)",
+    "key_contenders": [
+      "Kyle Larson (2x Sonoma winner - 2021, 2024, LOCAL)",
+      "Shane van Gisbergen (Defending champ, road master, but San Diego DNF)",
+      "Chase Elliott (Road specialist)",
+      "Tyler Reddick (Smooth technical style)",
+      "Ryan Blaney (Oval guy, not ideal here)"
+    ]
+  },
+  "algorithm_notes": {
+    "version": "v3.1",
+    "reason": "Test consistency vs dominance on established road course",
+    "learning_event": "San Diego Week 17 chaos taught: consistency beats dominance on NEW tracks. Sonoma is KNOWN track, so consistency should still win.",
+    "hypothesis": "Larson (2x winner, local, no DNF) beats SVG (dominance, defending champ, but recent DNF = momentum reset)"
+  }
+}
