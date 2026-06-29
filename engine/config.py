@@ -1,62 +1,86 @@
 #!/usr/bin/env python3
-"""Configuration loader for tracks and algorithm versions (JSON-based)."""
+"""Configuration loader for tracks, algorithm versions, and driver fields.
+
+Synthesized from both branches: Phase 1.2's API and JSON layout, made robust
+with path resolution relative to this file (so it works from any working
+directory, not just the repo root) and friendlier errors that list what IS
+available when a lookup misses.
+
+Layout under engine/data:
+    tracks/<key>.json
+    algorithms/<version>/parameters.json
+    field/<name>.json   (driver ratings under a top-level "field" key)
+"""
+
+from __future__ import annotations
 
 import json
 import os
-from typing import Dict, List
+from pathlib import Path
+from typing import Dict, List, Optional
 
 
 class ConfigLoader:
-    """Load track and algorithm configurations from JSON files."""
-    
-    def __init__(self, base_path: str = '.'):
-        self.base_path = base_path
-        self.tracks_path = os.path.join(base_path, 'engine/data/tracks')
-        self.algo_path = os.path.join(base_path, 'engine/data/algorithms')
-        self.field_path = os.path.join(base_path, 'engine/data/field')
-    
+    """Load track, algorithm, and field configs from the data directory."""
+
+    def __init__(self, base_path: Optional[str] = None):
+        # Default: the engine/data shipped beside this file. Override with
+        # base_path (a repo root) when needed, e.g. in tests.
+        if base_path is not None:
+            data_root = Path(base_path) / "engine" / "data"
+        else:
+            data_root = Path(__file__).resolve().parent / "data"
+        self.data_root = data_root
+        self.tracks_path = data_root / "tracks"
+        self.algo_path = data_root / "algorithms"
+        self.field_path = data_root / "field"
+
+    # -- loading ------------------------------------------------------------ #
     def load_track_config(self, track_name: str) -> Dict:
-        """Load track configuration from JSON."""
-        filepath = os.path.join(self.tracks_path, f'{track_name}.json')
-        
-        if not os.path.exists(filepath):
-            raise FileNotFoundError(f"Track config not found: {filepath}")
-        
-        with open(filepath, 'r') as f:
-            return json.load(f)
-    
+        path = self.tracks_path / f"{track_name}.json"
+        if not path.is_file():
+            raise FileNotFoundError(
+                f"No track config '{track_name}'. Available: {self.list_available_tracks()}"
+            )
+        return self._read(path)
+
     def load_algorithm_version(self, version: str) -> Dict:
-        """Load algorithm version configuration from JSON."""
-        filepath = os.path.join(self.algo_path, version, 'parameters.json')
-        
-        if not os.path.exists(filepath):
-            raise FileNotFoundError(f"Algorithm version not found: {filepath}")
-        
-        with open(filepath, 'r') as f:
-            return json.load(f)
-    
-    def load_field(self, field_name: str = 'default') -> Dict:
-        """Load driver field from JSON."""
-        filepath = os.path.join(self.field_path, f'{field_name}.json')
-        
-        if not os.path.exists(filepath):
-            raise FileNotFoundError(f"Field not found: {filepath}")
-        
-        with open(filepath, 'r') as f:
-            return json.load(f)
-    
+        candidates = [version] if version.startswith("v") else [version, f"v{version}"]
+        for cand in candidates:
+            path = self.algo_path / cand / "parameters.json"
+            if path.is_file():
+                return self._read(path)
+        raise FileNotFoundError(
+            f"No algorithm version '{version}'. Available: {self.list_available_algorithms()}"
+        )
+
+    def load_field(self, field_name: str = "default") -> Dict:
+        """Return the driver-ratings dict (the contents of the "field" key)."""
+        path = self.field_path / f"{field_name}.json"
+        if not path.is_file():
+            raise FileNotFoundError(f"No field '{field_name}' in {self.field_path}")
+        data = self._read(path)
+        drivers = data.get("field", data)
+        if not drivers:
+            raise ValueError(f"Field '{field_name}' has no drivers")
+        return drivers
+
+    # -- discovery ---------------------------------------------------------- #
     def list_available_tracks(self) -> List[str]:
-        """List all available track configurations."""
-        if not os.path.exists(self.tracks_path):
+        if not self.tracks_path.is_dir():
             return []
-        return sorted([f[:-5] for f in os.listdir(self.tracks_path) if f.endswith('.json')])
-    
+        return sorted(p.stem for p in self.tracks_path.glob("*.json"))
+
     def list_available_algorithms(self) -> List[str]:
-        """List all available algorithm versions."""
-        if not os.path.exists(self.algo_path):
+        if not self.algo_path.is_dir():
             return []
-        versions = []
-        for item in os.listdir(self.algo_path):
-            if os.path.isdir(os.path.join(self.algo_path, item)):
-                versions.append(item)
-        return sorted(versions)
+        return sorted(
+            p.name for p in self.algo_path.iterdir()
+            if p.is_dir() and (p / "parameters.json").is_file()
+        )
+
+    # -- internal ----------------------------------------------------------- #
+    @staticmethod
+    def _read(path: Path) -> Dict:
+        with open(path, "r") as f:
+            return json.load(f)

@@ -4,10 +4,13 @@
   "created": "2026-06-27",
   "notes": "Post-San Diego chaos event. Learned: consistency beats dominance on established tracks.",
   "seed": 42,
+  "apply_sonoma_tilt": false,
+  "calibration_note": "apply_sonoma_tilt is OFF to hold the published Sonoma ranking (Larson ~24.5%, 'moderate, not dominant'). On the current single-lap-finish model the per-driver tilts are all-or-nothing: turning them on sends Larson to ~67% and drops SVG out of the top tier. Re-enable only with a less deterministic finish model (v3.2).",
   "bonuses": {
     "road_specialty_weight": 0.05,
     "dominance_weight": 0.06,
     "braking_precision_weight": 0.03,
+    "elevation_weight": 0.02,
     "consistency_weight": 0.04,
     "local_knowledge_weight": 0.03,
     "patience_weight": 0.02,

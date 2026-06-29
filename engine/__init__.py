@@ -1,7 +1,6 @@
-"""NASCAR Monte Carlo Simulator Engine - v3.1"""
+"""Reusable, config-driven NASCAR race-prediction engine (v3.1)."""
 
-from .core_simulator import CoreSimulator
 from .config import ConfigLoader
+from .core_simulator import CoreSimulator
 
-__all__ = ['CoreSimulator', 'ConfigLoader']
-__version__ = '3.1'
+__all__ = ["ConfigLoader", "CoreSimulator"]
