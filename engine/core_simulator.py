@@ -55,6 +55,7 @@ class CoreSimulator:
         algo_config: Dict,
         field: Optional[Dict] = None,
         seed: Optional[int] = None,
+        variance_override: Optional[float] = None,
     ):
         """
         Args:
@@ -83,7 +84,12 @@ class CoreSimulator:
         physics = track_config.get("physics", {})
         self.caution_prob = physics.get("caution_probability", 0.035)
         self.pit_window = physics.get("pit_window_laps", 35)
-        self.variance = physics.get("variance_percent", 2.0)
+        # Variance can be overridden by the learning loop's calibration state.
+        self.variance = variance_override if variance_override is not None \
+            else physics.get("variance_percent", 2.0)
+        # Which form rating applies depends on track type.
+        self.is_road = "road" in str(track_config.get("track_type", "")).lower()
+        self.form_key = "road_form" if self.is_road else "oval_form"
 
         # Algorithm parameters.
         self.version = algo_config.get("version", "v3.1")
@@ -93,6 +99,15 @@ class CoreSimulator:
         self.bonuses = algo_config.get("bonuses", {})
         self.penalties = algo_config.get("penalties", {})
         self.track_specific = algo_config.get("track_specific", {})
+
+        # Finish model. v3.1 default ("argmax") = winner leads the final lap,
+        # which is near-deterministic and amplifies small edges. v3.2
+        # ("proportional") draws the winner with probability proportional to
+        # race-long pace ^ decisiveness, so form and tilt move outcomes
+        # smoothly. Higher decisiveness => more concentrated on the favorite.
+        finish = algo_config.get("finish", {})
+        self.finish_method = finish.get("method", "argmax")
+        self.decisiveness = finish.get("decisiveness", 1.0)
 
         # The per-driver `sonoma_specific` tilts (local-knowledge bonus, recent-DNF
         # penalty) are recorded in the field data but OFF by default. Reason: on
@@ -128,6 +143,7 @@ class CoreSimulator:
         for _ in range(num_simulations):
             tire_wear = {d: 0.0 for d in self.drivers}
             mistakes = {d: 0 for d in self.drivers}
+            perf_sum = {d: 0.0 for d in self.drivers}
             current_leader = next(iter(self.drivers))
 
             for lap in range(1, self.laps + 1):
@@ -144,15 +160,35 @@ class CoreSimulator:
 
                 performance = self._lap_performance(tire_wear, mistakes)
                 current_leader = max(performance, key=performance.get)
+                for d in self.drivers:
+                    perf_sum[d] += performance[d]
 
                 # Caution counted but inert (preserves validated distribution).
                 if self.rng.random() < self.caution_prob:
                     pass
 
-            results[current_leader] += 1
+            results[self._decide_winner(perf_sum, current_leader)] += 1
 
         self.results = results
         return results
+
+    def _decide_winner(self, perf_sum: Dict[str, float], leader: str) -> str:
+        """Pick the race winner from accumulated pace.
+
+        argmax (v3.1): whoever led the final lap. proportional (v3.2): a draw
+        weighted by race-long average pace ^ decisiveness -- smooth, so a small
+        edge yields a small win-share change.
+        """
+        if self.finish_method != "proportional":
+            return leader
+        names = list(perf_sum)
+        avg = [perf_sum[d] / self.laps for d in names]
+        # Normalize by the field's best pace before exponentiating: keeps the
+        # weights in a sane range (no overflow) while leaving the relative
+        # sampling probabilities identical.
+        top = max(avg) or 1.0
+        weights = [(a / top) ** self.decisiveness for a in avg]
+        return self.rng.choices(names, weights=weights, k=1)[0]
 
     def _lap_performance(
         self, tire_wear: Dict[str, float], mistakes: Dict[str, int]
@@ -179,6 +215,10 @@ class CoreSimulator:
 
             tire_impact = 1.0 - tire_wear[d] * 0.03
 
+            # Form: a bounded, decaying multiplier the learning loop updates
+            # from results (1.0 = neutral, so an unlearned field is unchanged).
+            form = self.driver_info.get(d, {}).get(self.form_key, 1.0)
+
             # v3.1 per-driver tilts, OFF by default (see __init__ note).
             local_bonus = 1.0
             dnf_penalty = 1.0
@@ -204,6 +244,7 @@ class CoreSimulator:
                 * patience_bonus
                 * adapt_bonus
                 * tire_impact
+                * form
                 * local_bonus
                 * dnf_penalty
                 * mistake_penalty
@@ -294,7 +335,8 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     parser = argparse.ArgumentParser(description="NASCAR Monte Carlo race predictor.")
     parser.add_argument("--track", default="sonoma", help="Track key (e.g. sonoma)")
-    parser.add_argument("--algorithm", default="v3.1", help="Algorithm version (e.g. v3.1)")
+    parser.add_argument("--algorithm", default="v3.2",
+                        help="Algorithm version (v3.2 = realistic finish; v3.1 = legacy)")
     parser.add_argument("--field", default="default", help="Driver field name")
     parser.add_argument("-n", "--num-simulations", type=int, default=10000,
                         help="Number of races to simulate (default 10000)")

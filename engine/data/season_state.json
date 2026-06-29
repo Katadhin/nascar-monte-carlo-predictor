@@ -1,0 +1,24 @@
+{
+  "season": 2026,
+  "through_week": 17,
+  "calibration": {
+    "variance_percent": 2.0,
+    "rolling_brier": []
+  },
+  "records": {
+    "Machine": {
+      "w": 2,
+      "l": 15
+    },
+    "Mikey": {
+      "w": 4,
+      "l": 12
+    },
+    "Jill": {
+      "w": 3,
+      "l": 6
+    }
+  },
+  "log": [],
+  "_comment": "Standings through Week 17 (pre-Sonoma). The learning loop appends each race."
+}

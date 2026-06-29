@@ -1,0 +1,39 @@
+{
+  "version": "v3.2",
+  "name": "Realistic Finish + Widened Skill Spread",
+  "created": "2026-06-28",
+  "notes": "Post-Sonoma rebuild. Two coupled changes fix the v3.1 knife-edge: (1) a proportional finish -- the winner is drawn with probability proportional to race-long pace ^ decisiveness, instead of whoever led the final lap; (2) widened skill weights (~8x v3.1) so drivers span a real ~25-30% strength range. Together these let a clear favorite emerge from SKILL at a gentle setting, while form and tilt features move the board proportionately instead of exploding. Consequence: on a road course the road master is favored (SVG over Larson) -- which is what actually happened at Sonoma.",
+  "seed": 42,
+  "apply_sonoma_tilt": false,
+  "calibration_note": "Favorite ~16% over a real chase pack; oval specialists correctly low; a +3% form nudge moves a driver ~5 points (was +77 under v3.1's deterministic finish). Tilt features can now be enabled safely, but learning (form) is the preferred way to encode what actually happens.",
+  "finish": {
+    "method": "proportional",
+    "decisiveness": 10
+  },
+  "bonuses": {
+    "road_specialty_weight": 0.40,
+    "dominance_weight": 0.06,
+    "braking_precision_weight": 0.24,
+    "elevation_weight": 0.16,
+    "consistency_weight": 0.04,
+    "local_knowledge_weight": 0.03,
+    "patience_weight": 0.16,
+    "adaptability_weight": 0.12
+  },
+  "penalties": {
+    "recent_dnf_penalty": 0.15
+  },
+  "track_specific": {
+    "established_track_bonus": 0.04,
+    "new_track_penalty": -0.05,
+    "street_course_dominance_penalty": -0.03
+  },
+  "changelog": {
+    "from_v3_1": [
+      "finish.method: proportional (was implicit final-lap argmax) -- smooth response to inputs",
+      "finish.decisiveness: 10 -- sharpness of the favorite, replaces the old variance knife-edge",
+      "skill weights scaled ~8x so the field spans a real ~25-30% pace range; a clear favorite now comes from skill, not from a near-deterministic finish",
+      "form/tilt now move win share proportionately (a +3% form bump = ~+5 points, was ~+77)"
+    ]
+  }
+}
