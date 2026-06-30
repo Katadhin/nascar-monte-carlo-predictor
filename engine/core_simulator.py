@@ -45,6 +45,18 @@ ATTRIBUTE_KEYS = (
     "adaptability",
 )
 
+# Oval / intermediate attribute set, in fixed order. Index 2 (tire_management)
+# is the "control" rating that drives tire wear + mistakes, parallel to
+# braking_precision on road, so run_simulation's tire model is track-agnostic.
+OVAL_ATTRIBUTE_KEYS = (
+    "base_speed",
+    "oval_specialty",
+    "tire_management",
+    "restart_skill",
+    "short_run_speed",
+    "long_run_speed",
+)
+
 
 class CoreSimulator:
     """NASCAR race simulator implementing the v3.1 algorithm."""
@@ -72,9 +84,12 @@ class CoreSimulator:
             field = self._load_default_field()
         self.driver_info = field  # full dicts (notes, sonoma_specific, ...)
 
+        # Track type decides which attribute set (and weights) apply.
+        _is_road = "road" in str(track_config.get("track_type", "")).lower()
+        self.attr_keys = ATTRIBUTE_KEYS if _is_road else OVAL_ATTRIBUTE_KEYS
         # Numeric ratings pulled by name -> order-independent and crash-free.
         self.drivers: Dict[str, Tuple[float, ...]] = {
-            name: tuple(data[k] for k in ATTRIBUTE_KEYS)
+            name: tuple(data[k] for k in self.attr_keys)
             for name, data in field.items()
         }
 
@@ -97,6 +112,7 @@ class CoreSimulator:
         self.rng = random.Random(self.seed)  # seeded instance, not global RNG
 
         self.bonuses = algo_config.get("bonuses", {})
+        self.oval_bonuses = algo_config.get("oval_bonuses", {})
         self.penalties = algo_config.get("penalties", {})
         self.track_specific = algo_config.get("track_specific", {})
 
@@ -198,6 +214,9 @@ class CoreSimulator:
         perf: Dict[str, float] = {}
 
         for d in self.drivers:
+            if not self.is_road:
+                perf[d] = self._oval_perf(d, tire_wear, mistakes)
+                continue
             base_speed, road_spec, braking, elevation, patience, adapt = self.drivers[d]
 
             variance = self.rng.gauss(1.0, self.variance / 100.0)
@@ -250,6 +269,40 @@ class CoreSimulator:
                 * mistake_penalty
             )
         return perf
+
+    def _oval_perf(
+        self, d: str, tire_wear: Dict[str, float], mistakes: Dict[str, int]
+    ) -> float:
+        """One lap's performance for an oval / intermediate.
+
+        Mirrors the road path's structure but uses the oval attribute set and
+        oval weights: oval_specialty, tire_management, restart_skill,
+        short_/long_run_speed. Index 2 (tire_management) drives tire wear and
+        mistakes, parallel to braking on road, so run_simulation is unchanged.
+        """
+        ob = self.oval_bonuses
+        base_speed, oval_spec, tire_mgmt, restart, short_run, long_run = self.drivers[d]
+
+        variance = self.rng.gauss(1.0, self.variance / 100.0)
+        spec_bonus = 1.0 + oval_spec * ob.get("oval_specialty_weight", 0.40)
+        tire_bonus = 1.0 + tire_mgmt * ob.get("tire_management_weight", 0.24)
+        restart_bonus = 1.0 + restart * ob.get("restart_skill_weight", 0.16)
+        short_bonus = 1.0 + short_run * ob.get("short_run_speed_weight", 0.12)
+        long_bonus = 1.0 + long_run * ob.get("long_run_speed_weight", 0.16)
+        consistency_bonus = 1.0 + self.bonuses.get("consistency_weight", 0.04) * 0.5
+
+        tire_impact = 1.0 - tire_wear[d] * 0.03
+        form = self.driver_info.get(d, {}).get(self.form_key, 1.0)
+
+        if self.rng.random() < (1.0 - tire_mgmt) * 0.07:
+            mistakes[d] += 1
+        mistake_penalty = 1.0 - mistakes[d] * 0.015
+
+        return (
+            base_speed * variance * spec_bonus * tire_bonus * restart_bonus
+            * short_bonus * long_bonus * consistency_bonus * tire_impact
+            * form * mistake_penalty
+        )
 
     # -- reporting ---------------------------------------------------------- #
     def get_top_predictions(self, n: int = 10) -> List[Tuple[str, float]]:

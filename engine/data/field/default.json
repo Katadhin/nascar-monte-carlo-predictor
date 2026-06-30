@@ -10,7 +10,13 @@
       "patience": 0.7,
       "adaptability": 0.69,
       "notes": "Dominant on ovals, weak on road courses. Erased 129-point deficit Weeks 14-16.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.96,
+      "tire_management": 0.95,
+      "restart_skill": 0.92,
+      "short_run_speed": 0.93,
+      "long_run_speed": 0.95,
+      "oval_form": 1.0
     },
     "Ryan Blaney": {
       "base_speed": 141,
@@ -20,7 +26,13 @@
       "patience": 0.77,
       "adaptability": 0.75,
       "notes": "Oval focused, not a road specialist.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.9,
+      "tire_management": 0.88,
+      "restart_skill": 0.9,
+      "short_run_speed": 0.9,
+      "long_run_speed": 0.88,
+      "oval_form": 1.0
     },
     "William Byron": {
       "base_speed": 139,
@@ -30,7 +42,13 @@
       "patience": 0.83,
       "adaptability": 0.81,
       "notes": "Technical driver, but primarily oval-focused.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.94,
+      "tire_management": 0.93,
+      "restart_skill": 0.88,
+      "short_run_speed": 0.92,
+      "long_run_speed": 0.93,
+      "oval_form": 1.0
     },
     "Chase Elliott": {
       "base_speed": 139,
@@ -40,7 +58,13 @@
       "patience": 0.89,
       "adaptability": 0.87,
       "notes": "Proven road specialist. Recent form has dipped Week 17 (San Diego miss).",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.89,
+      "tire_management": 0.9,
+      "restart_skill": 0.85,
+      "short_run_speed": 0.88,
+      "long_run_speed": 0.9,
+      "oval_form": 1.0
     },
     "Joey Logano": {
       "base_speed": 139,
@@ -50,7 +74,13 @@
       "patience": 0.75,
       "adaptability": 0.73,
       "notes": "Oval specialist, not a road course threat.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.88,
+      "tire_management": 0.85,
+      "restart_skill": 0.94,
+      "short_run_speed": 0.89,
+      "long_run_speed": 0.85,
+      "oval_form": 1.0
     },
     "Kyle Larson": {
       "base_speed": 138,
@@ -64,7 +94,13 @@
         "local_knowledge_bonus": 0.03,
         "sonoma_wins": 2
       },
-      "road_form": 0.9429
+      "road_form": 0.9429,
+      "oval_specialty": 0.97,
+      "tire_management": 0.94,
+      "restart_skill": 0.93,
+      "short_run_speed": 0.96,
+      "long_run_speed": 0.95,
+      "oval_form": 1.0
     },
     "Christopher Bell": {
       "base_speed": 138,
@@ -74,7 +110,13 @@
       "patience": 0.86,
       "adaptability": 0.84,
       "notes": "Road capable, but not top tier specialist.",
-      "road_form": 1.0571
+      "road_form": 1.0571,
+      "oval_specialty": 0.91,
+      "tire_management": 0.9,
+      "restart_skill": 0.89,
+      "short_run_speed": 0.9,
+      "long_run_speed": 0.9,
+      "oval_form": 1.0
     },
     "Ty Gibbs": {
       "base_speed": 138,
@@ -84,7 +126,13 @@
       "patience": 0.78,
       "adaptability": 0.76,
       "notes": "Young driver, still developing road course skills.",
-      "road_form": 1.06
+      "road_form": 1.06,
+      "oval_specialty": 0.82,
+      "tire_management": 0.8,
+      "restart_skill": 0.8,
+      "short_run_speed": 0.83,
+      "long_run_speed": 0.8,
+      "oval_form": 1.0
     },
     "Shane van Gisbergen": {
       "base_speed": 136,
@@ -98,7 +146,13 @@
         "defending_champ_bonus": 0.02,
         "recent_dnf_penalty": 0.15
       },
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.55,
+      "tire_management": 0.6,
+      "restart_skill": 0.58,
+      "short_run_speed": 0.55,
+      "long_run_speed": 0.58,
+      "oval_form": 1.0
     },
     "Tyler Reddick": {
       "base_speed": 137,
@@ -108,7 +162,13 @@
       "patience": 0.91,
       "adaptability": 0.9,
       "notes": "Championship smooth. Technical precision. Strong road course fundamentals.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.92,
+      "tire_management": 0.9,
+      "restart_skill": 0.88,
+      "short_run_speed": 0.91,
+      "long_run_speed": 0.9,
+      "oval_form": 1.0
     },
     "Chris Buescher": {
       "base_speed": 136,
@@ -118,7 +178,13 @@
       "patience": 0.88,
       "adaptability": 0.86,
       "notes": "Underrated road specialist. Consistent on technical tracks.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.82,
+      "tire_management": 0.84,
+      "restart_skill": 0.82,
+      "short_run_speed": 0.82,
+      "long_run_speed": 0.84,
+      "oval_form": 1.0
     },
     "Michael McDowell": {
       "base_speed": 135,
@@ -128,7 +194,13 @@
       "patience": 0.87,
       "adaptability": 0.85,
       "notes": "Reliable technician. Steady on road courses.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.7,
+      "tire_management": 0.72,
+      "restart_skill": 0.74,
+      "short_run_speed": 0.7,
+      "long_run_speed": 0.72,
+      "oval_form": 1.0
     },
     "Connor Zilisch": {
       "base_speed": 135,
@@ -138,7 +210,13 @@
       "patience": 0.85,
       "adaptability": 0.83,
       "notes": "Young driver with road racing background.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.72,
+      "tire_management": 0.7,
+      "restart_skill": 0.72,
+      "short_run_speed": 0.74,
+      "long_run_speed": 0.7,
+      "oval_form": 1.0
     },
     "AJ Allmendinger": {
       "base_speed": 135,
@@ -148,7 +226,13 @@
       "patience": 0.93,
       "adaptability": 0.91,
       "notes": "Road racing legend. Underrated in Cup Series. Should be higher.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.62,
+      "tire_management": 0.68,
+      "restart_skill": 0.66,
+      "short_run_speed": 0.62,
+      "long_run_speed": 0.66,
+      "oval_form": 1.0
     },
     "Austin Cindric": {
       "base_speed": 137,
@@ -158,7 +242,13 @@
       "patience": 0.8,
       "adaptability": 0.78,
       "notes": "Road capable, but not elite specialist.",
-      "road_form": 1.0
+      "road_form": 1.0,
+      "oval_specialty": 0.78,
+      "tire_management": 0.78,
+      "restart_skill": 0.8,
+      "short_run_speed": 0.78,
+      "long_run_speed": 0.78,
+      "oval_form": 1.0
     }
   }
 }

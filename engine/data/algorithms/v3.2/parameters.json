@@ -11,7 +11,7 @@
     "decisiveness": 10
   },
   "bonuses": {
-    "road_specialty_weight": 0.40,
+    "road_specialty_weight": 0.4,
     "dominance_weight": 0.06,
     "braking_precision_weight": 0.24,
     "elevation_weight": 0.16,
@@ -35,5 +35,12 @@
       "skill weights scaled ~8x so the field spans a real ~25-30% pace range; a clear favorite now comes from skill, not from a near-deterministic finish",
       "form/tilt now move win share proportionately (a +3% form bump = ~+5 points, was ~+77)"
     ]
+  },
+  "oval_bonuses": {
+    "oval_specialty_weight": 0.4,
+    "tire_management_weight": 0.24,
+    "restart_skill_weight": 0.16,
+    "short_run_speed_weight": 0.12,
+    "long_run_speed_weight": 0.16
   }
 }
