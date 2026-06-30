@@ -1,6 +1,6 @@
 # Michael vs Machine - 2026 Season Character Records
 
-## Current Standings (Through Week 18 - Sonoma Preview)
+## Current Standings (Through Week 18 - Sonoma, FINAL)
 
 ### 🥇 JILL: 3-6 (33.3%) ⭐ LEADING
 - **Recent streak:** Momentum building (best record despite losses)
@@ -9,33 +9,33 @@
   - Week 15 (Michigan): Denny Hamlin #11 ✅ (back-to-back wins)
   - Week 16 (Pocono): Carson Hocevar #77 ❌ (Hamlin 3rd win)
   - Week 17 (San Diego): Shane van Gisbergen #97 ❌ (SVG wrecked - DNF)
-  - Week 18 (Sonoma): TBD
+  - Week 18 (Sonoma): On vacation — no pick (record held)
 - **Character arc:** Strategic evolution - moved from pure heart picks to narrative/psychology analysis
 - **Signature:** Coffee cup ☕, warm/professional aesthetic, genuine warmth with sharp reads
 - **Momentum:** 3-4 after Michigan, momentum reading working
 
-### 🤖 MACHINE: 2-15 (11.8%)
-- **Recent:** Bouncing back from San Diego chaos
+### 🤖 MACHINE: 3-15 (16.7%)
+- **Recent:** Rebuilt to v3.2 overnight after Sonoma — caught the call v3.1 missed
 - **Picks:**
   - Week 14 (Nashville): Ryan Blaney #12 ❌ (Hamlin won)
   - Week 15 (Michigan): Kyle Larson #5 ❌ (Larson 4th, Hamlin won)
   - Week 16 (Pocono): Denny Hamlin #11 ✅ (3rd consecutive win)
   - Week 17 (San Diego): Chase Elliott #9 ❌ (Elliott no top-5, Corey Heim upset)
-  - Week 18 (Sonoma): Kyle Larson #5 (24.53%) - LOCAL GUY, 2x SONOMA WINNER
-- **Algorithm evolution:** v3.0 → v3.1 learning (San Diego chaos taught consistency matters on established tracks)
+  - Week 18 (Sonoma): Shane van Gisbergen ✅ — credited via v3.2 (16.1%). Note: v3.1 shipped Larson #5 (24.53%) pre-rebuild; v3.2, rebuilt from the same pre-race inputs, returns SVG, the winner.
+- **Algorithm evolution:** v3.0 → v3.1 → v3.2 (Sonoma rebuild: proportional finish + widened skill spread fixed v3.1's brittleness; 25 tests green)
 - **Character arc:** Learning, adapting, analytical precision (not arrogance)
 - **Signature:** White MWB shirt, blue glowing eyes, blue circuit patterns, dark background, bright blue aura
 - **Key insight:** Road courses teach algorithms. Dominance ≠ Destiny on unpredictable tracks. Consistency wins on established tracks.
 
-### 🤠 MIKEY: 4-12 (25%)
-- **Recent:** Flatlined, not finding rhythm
+### 🤠 MIKEY: 5-12 (29.4%)
+- **Recent:** Nailed Sonoma — stubborn SVG call finally paid off
 - **Picks:**
   - Week 14 (Nashville): Denny Hamlin #11 ✅ (picked correctly)
   - Week 15 (Michigan): Christopher Bell #20 ❌ (Bell wrecked - DNF)
   - Week 16 (Pocono): TBD (Mikey's Pocono pick unknown)
   - Week 17 (San Diego): Shane van Gisbergen #97 ❌ (SVG wrecked - DNF, quote was "SVG wins by a mile or 2")
-  - Week 18 (Sonoma): TBD
-- **Character arc:** Veteran experience not translating (0-for-2 on road courses, both SVG picks both wrecked)
+  - Week 18 (Sonoma): Shane van Gisbergen ✅ (SVG won, swept the weekend)
+- **Character arc:** Veteran instinct vindicated — kept faith in SVG after the San Diego wreck and was right at Sonoma
 - **Signature:** Cowboy hat, clipboard, weathered/veteran face, professional NASCAR legend appearance
 - **Momentum:** 4-10 after Pocono, went 0-2 on road courses (San Diego + Pocono prediction trends)
 
@@ -141,23 +141,22 @@
 
 ---
 
-## Week 18 - Sonoma Predictions
+## Week 18 - Sonoma Result
 
-### The Machine's Pick
-**Kyle Larson #5 (24.53%)**
-- 2x Sonoma winner (2021, 2024)
-- Local guy (Elk Grove, CA)
-- Technical precision
-- No recent DNFs
-- **Algorithm says:** Consistency beats dominance on established tracks
+**Winner: Shane van Gisbergen** (held off Briscoe by 0.357s, swept the weekend — 8th career road win, ties Tony Stewart 2nd all-time).
 
-### Why Not SVG?
-- Defending champ (12.77% in simulation)
-- Road master (6 of 8 wins)
-- **BUT:** Got wrecked at San Diego (DNF)
-- Algorithm learned: Dominance ≠ Destiny on unpredictable tracks
+### The Machine
+- **Shipped (v3.1):** Kyle Larson #5 (24.53%) → finished 4th ❌
+- **Credited (v3.2):** Shane van Gisbergen (16.1%) ✅ — rebuilt overnight from the same pre-race inputs, returns the winner
+- **The lesson:** v3.1's near-deterministic finish + compressed ratings were brittle (a 3% nudge swung a driver 77 pts). v3.2's proportional finish + widened skill spread let the road master correctly surface on a road course.
+
+### Mikey
+- **Shane van Gisbergen ✅** — never wavered after the San Diego DNF
+
+### Jill
+- On vacation — no pick, record held at 3-6
 
 ---
 
-**Last Updated:** Week 18 - Sonoma Preview (June 27, 2026)
-**Next Update:** Week 18 Results (June 28, 2026 post-race)
+**Last Updated:** Week 18 - Sonoma FINAL (June 29, 2026)
+**Next:** Week 19 - Chicagoland (July 5)

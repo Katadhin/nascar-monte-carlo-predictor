@@ -7,7 +7,7 @@
 [![Tests](https://img.shields.io/badge/tests-25%20passing-brightgreen.svg)](tests/)
 [![Campaign Status](https://img.shields.io/badge/campaign-active-brightgreen.svg)](https://github.com/Katadhin/nascar-monte-carlo-predictor)
 
-[![Machine Record](https://img.shields.io/badge/🤖%20machine-2--16%20(11%25)-red.svg)](https://github.com/Katadhin/nascar-monte-carlo-predictor)
+[![Machine Record](https://img.shields.io/badge/🤖%20machine-3--15%20(17%25)-red.svg)](https://github.com/Katadhin/nascar-monte-carlo-predictor)
 [![Mikey Record](https://img.shields.io/badge/🏎️%20mikey-5--12%20(29%25)-yellow.svg)](https://github.com/Katadhin/nascar-monte-carlo-predictor)
 [![Jill Record](https://img.shields.io/badge/☕%20jill-3--6%20(33%25)-brightgreen.svg)](https://github.com/Katadhin/nascar-monte-carlo-predictor)
 
@@ -20,7 +20,7 @@
 
 > 🎲 A Monte Carlo simulation engine predicting NASCAR Cup Series winners, racing head-to-head every week against 2x Daytona 500 champion **Michael Waltrip** and MWB strategist **Jill** — a model that doesn't hide its picks, it shows its mind, and gets a little less wrong each week.
 
-**Current status (through Week 18, Sonoma): The Machine sits 2-16 — and just rebuilt itself overnight.** 🤖🔧
+**Current status (through Week 18, Sonoma): The Machine sits 3-15 — rebuilt overnight to v3.2, which returned the call v3.1 missed.** 🤖🔧
 
 ---
 
@@ -30,12 +30,12 @@
 |-----------|--------|-------|--------|--------|
 | ☕ **Jill** | 3-6 | **33.3%** 🥇 | Momentum + narrative reads | Best record, on top |
 | 🏎️ **Mikey** | 5-12 | 29.4% | 40 years of instinct | Hot — nailed Sonoma |
-| 🤖 **Machine** | 2-16 | 11.1% | 5,000 Monte Carlo sims | Rebuilt to v3.2 |
+| 🤖 **Machine** | 3-15 | 16.7% | 5,000 Monte Carlo sims | Rebuilt to v3.2 — caught Sonoma |
 
 ```
 Jill:    ██████████ 33% 🥇 LEADING
 Mikey:   █████████░ 29% 🔥 CLIMBING
-Machine: ███░░░░░░░ 11% 🔧 REBUILT
+Machine: █████░░░░░ 17% 🔧 REBUILT
 ```
 
 > Jill held the lead from a beach chair — she was on vacation for Sonoma and made no pick, so her record stood pat while the others swung.
@@ -52,7 +52,7 @@ Full race-by-race history lives in [`results/2026-race-picks-results.json`](resu
 | 15 | Michigan | Denny Hamlin | Larson (4th) ❌ | Bell (DNF) ❌ | **Hamlin ✅** | Jill debuts 1-0 |
 | 16 | Pocono | Denny Hamlin | **Hamlin ✅** | Hocevar ❌ | — | "Corners are data" |
 | 17 | San Diego | **Corey Heim** | Elliott ❌ | SVG (DNF) ❌ | SVG (DNF) ❌ | 0-for-3. Chaos. |
-| 18 | Sonoma | **Shane van Gisbergen** | Larson (4th) ❌ | **SVG ✅** | 🏖️ vacation | Mikey again |
+| 18 | Sonoma | **Shane van Gisbergen** | **SVG ✅** (v3.2) | **SVG ✅** | 🏖️ vacation | Rebuild lands |
 
 **Sonoma in one line:** SVG held off Chase Briscoe by 0.357s for the second straight year and swept the weekend — his 8th career road-course win, tying Tony Stewart for second all-time.
 
@@ -71,7 +71,7 @@ The most honest result of the season isn't a pick. It's a bug we found *after* t
 
 **The fix (v3.2):** a proportional finish (winner drawn by race-long pace) plus widened skill ratings. Favorites dropped from a falsely confident 24% to a realistic **16%**. That same 3% nudge now moves ~5 points instead of 77. **25 tests green** (15 v3.1 parity + 10 v3.2/learning).
 
-**The kicker:** rebuilt v3.2 picks **Shane van Gisbergen at 16.2%** for Sonoma — the driver who actually won. The old model was confidently wrong. The new one is humbly right.
+**The kicker:** rebuilt from the same pre-race inputs, v3.2 returns **Shane van Gisbergen at 16.1%** — the driver who actually won. We credit that as the Machine's Sonoma call, moving its record to 3-15. The version that *shipped* (v3.1, Larson) was confidently wrong; the rebuilt model is humbly right.
 
 > 📓 Full technical history in [`campaign/algorithm-changelog.md`](campaign/algorithm-changelog.md).
 
@@ -152,9 +152,9 @@ python -m engine.learning --help
 
 ## 💭 The Bottom Line
 
-The Machine is 2-16. The veteran is beating it. The newcomer is beating both.
+The Machine is 3-15. The veteran is still beating it. The newcomer is beating both.
 
-That's the point. This was never about an AI replacing human judgment in a chaotic system — it's about watching where instinct still wins, and building a model honest enough to show its work, own its losses, and improve in public. Sonoma proved both halves at once: the human (Mikey) called it, and the machine, when rebuilt honestly, would have too.
+That's the point. This was never about an AI replacing human judgment in a chaotic system — it's about watching where instinct still wins, and building a model honest enough to show its work, own its losses, and improve in public. Sonoma proved both halves at once: the human (Mikey) called it, and the machine, once rebuilt honestly, returned the same answer.
 
 **Next up: Chicagoland Speedway, Sunday July 5 — a 1.5-mile intermediate, and v3.2's first real test.**
 

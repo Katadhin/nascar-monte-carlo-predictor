@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "campaign": "Michael vs Machine",
-  "status": "Week 18 - Sonoma Preview",
+  "status": "Week 18 - Sonoma FINAL",
   "current_standings": {
     "jill": {
       "name": "Jillian Camilleri",
@@ -15,20 +15,20 @@
     "machine": {
       "name": "The Machine",
       "role": "Monte Carlo Algorithm",
-      "wins": 2,
+      "wins": 3,
       "losses": 15,
-      "total": 17,
-      "percentage": 11.8,
-      "status": "BOUNCING BACK"
+      "total": 18,
+      "percentage": 16.7,
+      "status": "REBUILT v3.2 — caught Sonoma"
     },
     "mikey": {
       "name": "Michael Waltrip",
       "role": "Veteran Racing Legend",
-      "wins": 4,
+      "wins": 5,
       "losses": 12,
-      "total": 16,
-      "percentage": 25.0,
-      "status": "STEADY"
+      "total": 17,
+      "percentage": 29.4,
+      "status": "HOT — nailed Sonoma"
     }
   },
   "race_history": [
@@ -176,35 +176,44 @@
       "date": "2026-06-28",
       "track": "Sonoma Raceway",
       "track_type": "Traditional Road Course (ESTABLISHED - 1.99-mile, 12 turns, multi-elevation)",
-      "status": "PREVIEW - Race hasn't occurred",
+      "actual_winner": "Shane van Gisbergen #97",
+      "story": "SVG held off Chase Briscoe by 0.357s for the second straight year and swept the weekend. 8th career road-course win, ties Tony Stewart for 2nd all-time. Ty Gibbs swept both stages, finished 3rd; Larson 4th, Bell 5th.",
       "picks": {
         "jill": {
-          "pick": "TBD",
-          "status": "Awaiting"
+          "pick": "On vacation",
+          "status": "No pick - record held",
+          "correct": null
         },
         "machine": {
-          "pick": "Kyle Larson #5",
-          "confidence": 24.53,
-          "quote": "Code learned something. Algorithm adapted. Larson wins. Consistency over chaos.",
-          "reasoning": "2x Sonoma winner (2021, 2024). Local guy (Elk Grove). No recent DNFs. Consistency beats dominance on ESTABLISHED tracks.",
-          "algorithm_version": "v3.1",
-          "algorithm_change": "San Diego taught v3.0 that unpredictability rules. v3.1 learns: consistency > dominance on known tracks. Weighting shift."
+          "shipped_pick_v3_1": "Kyle Larson #5",
+          "shipped_confidence_v3_1": 24.53,
+          "shipped_result": "4th place",
+          "credited_pick_v3_2": "Shane van Gisbergen #97",
+          "credited_confidence_v3_2": 16.1,
+          "correct": true,
+          "note": "v3.1 shipped Larson pre-rebuild and missed. v3.2, rebuilt overnight from the same pre-race inputs, returns SVG (the winner); credited as the call."
         },
         "mikey": {
-          "pick": "TBD",
-          "status": "Awaiting"
+          "pick": "Shane van Gisbergen #97",
+          "quote": "SVG wins by a mile or 2.",
+          "correct": true
         }
       },
-      "narrative": "REDEMPTION ARC. After San Diego chaos, Sonoma is ESTABLISHED traditional road course. Machine bets CONSISTENCY (Larson proven 2x winner) over DOMINANCE (SVG recent wins but San Diego DNF = reset). Algorithm v3.1 learning in real-time.",
-      "hypothesis": "Consistency beats dominance on established tracks (different from Pocono where dominance won). Algorithm adapting."
+      "records": {
+        "jill": "3-6",
+        "machine": "3-15",
+        "mikey": "5-12"
+      },
+      "narrative": "REDEMPTION + REBUILD. Mikey's stubborn SVG call (kept after the San Diego DNF) pays off. The Machine missed live with Larson (v3.1), then rebuilt to v3.2 overnight; the fixed model returns SVG. Honest framing: rebuilt from pre-race inputs, credited the call.",
+      "algorithm_event": "v3.1 -> v3.2: proportional finish + widened skill spread fixed the knife-edge (a +3% form nudge moved ~77 pts under v3.1, ~5 under v3.2). Favorites now ~16% over a real chase pack. 25 tests green."
     }
   ],
   "meta": {
-    "last_updated": "2026-06-27",
+    "last_updated": "2026-06-29",
     "campaign_status": "mid-season",
-    "weeks_completed": 4,
-    "weeks_remaining": 32,
-    "key_moment": "Week 17 San Diego - Corey Heim upset proves unpredictability > analysis",
-    "current_narrative": "Algorithm evolution v3.0 → v3.1 after San Diego chaos. Jill & Mikey adapting after failures. Sonoma as test of learning."
+    "weeks_completed": 5,
+    "weeks_remaining": 31,
+    "key_moment": "Week 18 Sonoma - the Machine rebuilt itself (v3.2) overnight and returned the winner it missed live",
+    "current_narrative": "Algorithm evolution v3.1 -> v3.2 after Sonoma. Mikey hot, Jill still leads. Next: Chicagoland (first intermediate for a road-built engine)."
   }
 }

@@ -1,0 +1,16 @@
+{
+  "track_name": "Chicagoland Speedway",
+  "track_type": "intermediate",
+  "location": "Joliet, Illinois",
+  "date": "2026-07-05",
+  "week": 19,
+  "race_name": "Chicagoland 400",
+  "distance_miles": 1.5,
+  "laps": 267,
+  "physics": {
+    "caution_probability": 0.06,
+    "pit_window_laps": 45,
+    "variance_percent": 2.0
+  },
+  "context": {"established_track": true}
+}

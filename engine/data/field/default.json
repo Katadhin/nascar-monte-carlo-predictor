@@ -9,7 +9,8 @@
       "elevation_management": 0.71,
       "patience": 0.7,
       "adaptability": 0.69,
-      "notes": "Dominant on ovals, weak on road courses. Erased 129-point deficit Weeks 14-16."
+      "notes": "Dominant on ovals, weak on road courses. Erased 129-point deficit Weeks 14-16.",
+      "road_form": 1.0
     },
     "Ryan Blaney": {
       "base_speed": 141,
@@ -18,7 +19,8 @@
       "elevation_management": 0.76,
       "patience": 0.77,
       "adaptability": 0.75,
-      "notes": "Oval focused, not a road specialist."
+      "notes": "Oval focused, not a road specialist.",
+      "road_form": 1.0
     },
     "William Byron": {
       "base_speed": 139,
@@ -27,7 +29,8 @@
       "elevation_management": 0.82,
       "patience": 0.83,
       "adaptability": 0.81,
-      "notes": "Technical driver, but primarily oval-focused."
+      "notes": "Technical driver, but primarily oval-focused.",
+      "road_form": 1.0
     },
     "Chase Elliott": {
       "base_speed": 139,
@@ -36,7 +39,8 @@
       "elevation_management": 0.88,
       "patience": 0.89,
       "adaptability": 0.87,
-      "notes": "Proven road specialist. Recent form has dipped Week 17 (San Diego miss)."
+      "notes": "Proven road specialist. Recent form has dipped Week 17 (San Diego miss).",
+      "road_form": 1.0
     },
     "Joey Logano": {
       "base_speed": 139,
@@ -45,7 +49,8 @@
       "elevation_management": 0.74,
       "patience": 0.75,
       "adaptability": 0.73,
-      "notes": "Oval specialist, not a road course threat."
+      "notes": "Oval specialist, not a road course threat.",
+      "road_form": 1.0
     },
     "Kyle Larson": {
       "base_speed": 138,
@@ -58,7 +63,8 @@
       "sonoma_specific": {
         "local_knowledge_bonus": 0.03,
         "sonoma_wins": 2
-      }
+      },
+      "road_form": 0.9429
     },
     "Christopher Bell": {
       "base_speed": 138,
@@ -67,7 +73,8 @@
       "elevation_management": 0.85,
       "patience": 0.86,
       "adaptability": 0.84,
-      "notes": "Road capable, but not top tier specialist."
+      "notes": "Road capable, but not top tier specialist.",
+      "road_form": 1.0571
     },
     "Ty Gibbs": {
       "base_speed": 138,
@@ -76,7 +83,8 @@
       "elevation_management": 0.77,
       "patience": 0.78,
       "adaptability": 0.76,
-      "notes": "Young driver, still developing road course skills."
+      "notes": "Young driver, still developing road course skills.",
+      "road_form": 1.06
     },
     "Shane van Gisbergen": {
       "base_speed": 136,
@@ -89,7 +97,8 @@
       "sonoma_specific": {
         "defending_champ_bonus": 0.02,
         "recent_dnf_penalty": 0.15
-      }
+      },
+      "road_form": 1.0
     },
     "Tyler Reddick": {
       "base_speed": 137,
@@ -98,7 +107,8 @@
       "elevation_management": 0.9,
       "patience": 0.91,
       "adaptability": 0.9,
-      "notes": "Championship smooth. Technical precision. Strong road course fundamentals."
+      "notes": "Championship smooth. Technical precision. Strong road course fundamentals.",
+      "road_form": 1.0
     },
     "Chris Buescher": {
       "base_speed": 136,
@@ -107,7 +117,8 @@
       "elevation_management": 0.87,
       "patience": 0.88,
       "adaptability": 0.86,
-      "notes": "Underrated road specialist. Consistent on technical tracks."
+      "notes": "Underrated road specialist. Consistent on technical tracks.",
+      "road_form": 1.0
     },
     "Michael McDowell": {
       "base_speed": 135,
@@ -116,7 +127,8 @@
       "elevation_management": 0.86,
       "patience": 0.87,
       "adaptability": 0.85,
-      "notes": "Reliable technician. Steady on road courses."
+      "notes": "Reliable technician. Steady on road courses.",
+      "road_form": 1.0
     },
     "Connor Zilisch": {
       "base_speed": 135,
@@ -125,7 +137,8 @@
       "elevation_management": 0.83,
       "patience": 0.85,
       "adaptability": 0.83,
-      "notes": "Young driver with road racing background."
+      "notes": "Young driver with road racing background.",
+      "road_form": 1.0
     },
     "AJ Allmendinger": {
       "base_speed": 135,
@@ -134,7 +147,8 @@
       "elevation_management": 0.91,
       "patience": 0.93,
       "adaptability": 0.91,
-      "notes": "Road racing legend. Underrated in Cup Series. Should be higher."
+      "notes": "Road racing legend. Underrated in Cup Series. Should be higher.",
+      "road_form": 1.0
     },
     "Austin Cindric": {
       "base_speed": 137,
@@ -143,7 +157,8 @@
       "elevation_management": 0.79,
       "patience": 0.8,
       "adaptability": 0.78,
-      "notes": "Road capable, but not elite specialist."
+      "notes": "Road capable, but not elite specialist.",
+      "road_form": 1.0
     }
   }
 }
