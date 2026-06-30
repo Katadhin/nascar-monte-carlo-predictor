@@ -5,6 +5,9 @@ Sonoma, with Larson > Elliott > SVG), and lock the engineering that Phase 1.2
 lacked (it runs, it's deterministic, the v3.1 tilt features actually fire).
 """
 
+import json
+from pathlib import Path
+
 import pytest
 
 from engine.config import ConfigLoader
@@ -29,6 +32,20 @@ def v31(loader):
 @pytest.fixture
 def field(loader):
     return loader.load_field("default")
+
+
+@pytest.fixture
+def baseline_field():
+    """Frozen pre-learning field for v3.1 parity tests.
+
+    v3.1's near-deterministic finish is highly sensitive to form, so parity must
+    be checked against fixed inputs, not the live field the learning loop mutates
+    every race. (The live field moving past this snapshot is itself the
+    brittleness v3.2 was built to fix.)
+    """
+    p = Path(__file__).parent / "fixtures" / "baseline_field.json"
+    data = json.loads(p.read_text())
+    return data.get("field", data)
 
 
 # -- config loading --------------------------------------------------------- #
@@ -79,21 +96,21 @@ def test_v31_tilt_features_present_in_data(field):
 
 
 # -- parity with the published model ---------------------------------------- #
-def test_sonoma_pick_is_larson(sonoma, v31, field):
-    sim = CoreSimulator(sonoma, v31, field, seed=42)
+def test_sonoma_pick_is_larson(sonoma, v31, baseline_field):
+    sim = CoreSimulator(sonoma, v31, baseline_field, seed=42)
     sim.run_simulation(5000)
     assert sim.get_top_predictions(1)[0][0] == "Kyle Larson"
 
 
-def test_sonoma_top_three_order(sonoma, v31, field):
-    sim = CoreSimulator(sonoma, v31, field, seed=42)
+def test_sonoma_top_three_order(sonoma, v31, baseline_field):
+    sim = CoreSimulator(sonoma, v31, baseline_field, seed=42)
     sim.run_simulation(5000)
     top3 = [name for name, _ in sim.get_top_predictions(3)]
     assert top3 == ["Kyle Larson", "Chase Elliott", "Shane van Gisbergen"]
 
 
-def test_larson_confidence_in_expected_band(sonoma, v31, field):
-    sim = CoreSimulator(sonoma, v31, field, seed=42)
+def test_larson_confidence_in_expected_band(sonoma, v31, baseline_field):
+    sim = CoreSimulator(sonoma, v31, baseline_field, seed=42)
     sim.run_simulation(5000)
     pct = sim.get_top_predictions(1)[0][1]
     assert 20.0 <= pct <= 30.0

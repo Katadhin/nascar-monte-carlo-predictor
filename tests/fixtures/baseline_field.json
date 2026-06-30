@@ -1,0 +1,149 @@
+{
+  "season": 2026,
+  "description": "NASCAR Cup Series Driver Ratings - Derived from Weeks 14-17 performance",
+  "field": {
+    "Denny Hamlin": {
+      "base_speed": 141,
+      "road_specialty": 0.72,
+      "braking_precision": 0.73,
+      "elevation_management": 0.71,
+      "patience": 0.7,
+      "adaptability": 0.69,
+      "notes": "Dominant on ovals, weak on road courses. Erased 129-point deficit Weeks 14-16."
+    },
+    "Ryan Blaney": {
+      "base_speed": 141,
+      "road_specialty": 0.77,
+      "braking_precision": 0.78,
+      "elevation_management": 0.76,
+      "patience": 0.77,
+      "adaptability": 0.75,
+      "notes": "Oval focused, not a road specialist."
+    },
+    "William Byron": {
+      "base_speed": 139,
+      "road_specialty": 0.83,
+      "braking_precision": 0.84,
+      "elevation_management": 0.82,
+      "patience": 0.83,
+      "adaptability": 0.81,
+      "notes": "Technical driver, but primarily oval-focused."
+    },
+    "Chase Elliott": {
+      "base_speed": 139,
+      "road_specialty": 0.89,
+      "braking_precision": 0.9,
+      "elevation_management": 0.88,
+      "patience": 0.89,
+      "adaptability": 0.87,
+      "notes": "Proven road specialist. Recent form has dipped Week 17 (San Diego miss)."
+    },
+    "Joey Logano": {
+      "base_speed": 139,
+      "road_specialty": 0.75,
+      "braking_precision": 0.76,
+      "elevation_management": 0.74,
+      "patience": 0.75,
+      "adaptability": 0.73,
+      "notes": "Oval specialist, not a road course threat."
+    },
+    "Kyle Larson": {
+      "base_speed": 138,
+      "road_specialty": 0.94,
+      "braking_precision": 0.95,
+      "elevation_management": 0.94,
+      "patience": 0.93,
+      "adaptability": 0.92,
+      "notes": "2x Sonoma winner (2021, 2024). LOCAL to region (Elk Grove). No recent DNFs. Consistency machine.",
+      "sonoma_specific": {
+        "local_knowledge_bonus": 0.03,
+        "sonoma_wins": 2
+      }
+    },
+    "Christopher Bell": {
+      "base_speed": 138,
+      "road_specialty": 0.86,
+      "braking_precision": 0.87,
+      "elevation_management": 0.85,
+      "patience": 0.86,
+      "adaptability": 0.84,
+      "notes": "Road capable, but not top tier specialist."
+    },
+    "Ty Gibbs": {
+      "base_speed": 138,
+      "road_specialty": 0.79,
+      "braking_precision": 0.78,
+      "elevation_management": 0.77,
+      "patience": 0.78,
+      "adaptability": 0.76,
+      "notes": "Young driver, still developing road course skills."
+    },
+    "Shane van Gisbergen": {
+      "base_speed": 136,
+      "road_specialty": 0.98,
+      "braking_precision": 0.97,
+      "elevation_management": 0.96,
+      "patience": 0.98,
+      "adaptability": 0.97,
+      "notes": "PEAK road course master. 6 of 8 recent road wins. Sonoma 2025 champion. BUT San Diego DNF (Week 17) = momentum reset.",
+      "sonoma_specific": {
+        "defending_champ_bonus": 0.02,
+        "recent_dnf_penalty": 0.15
+      }
+    },
+    "Tyler Reddick": {
+      "base_speed": 137,
+      "road_specialty": 0.91,
+      "braking_precision": 0.92,
+      "elevation_management": 0.9,
+      "patience": 0.91,
+      "adaptability": 0.9,
+      "notes": "Championship smooth. Technical precision. Strong road course fundamentals."
+    },
+    "Chris Buescher": {
+      "base_speed": 136,
+      "road_specialty": 0.88,
+      "braking_precision": 0.89,
+      "elevation_management": 0.87,
+      "patience": 0.88,
+      "adaptability": 0.86,
+      "notes": "Underrated road specialist. Consistent on technical tracks."
+    },
+    "Michael McDowell": {
+      "base_speed": 135,
+      "road_specialty": 0.87,
+      "braking_precision": 0.88,
+      "elevation_management": 0.86,
+      "patience": 0.87,
+      "adaptability": 0.85,
+      "notes": "Reliable technician. Steady on road courses."
+    },
+    "Connor Zilisch": {
+      "base_speed": 135,
+      "road_specialty": 0.85,
+      "braking_precision": 0.84,
+      "elevation_management": 0.83,
+      "patience": 0.85,
+      "adaptability": 0.83,
+      "notes": "Young driver with road racing background."
+    },
+    "AJ Allmendinger": {
+      "base_speed": 135,
+      "road_specialty": 0.93,
+      "braking_precision": 0.92,
+      "elevation_management": 0.91,
+      "patience": 0.93,
+      "adaptability": 0.91,
+      "notes": "Road racing legend. Underrated in Cup Series. Should be higher."
+    },
+    "Austin Cindric": {
+      "base_speed": 137,
+      "road_specialty": 0.81,
+      "braking_precision": 0.8,
+      "elevation_management": 0.79,
+      "patience": 0.8,
+      "adaptability": 0.78,
+      "notes": "Road capable, but not elite specialist."
+    }
+  }
+}

@@ -6,6 +6,9 @@ v3.1 blow-up must never come back), and the loop only corrects its mistakes.
 """
 
 import copy
+import json
+from pathlib import Path
+
 import pytest
 
 from engine.config import ConfigLoader
@@ -31,6 +34,15 @@ def v32(loader):
 @pytest.fixture
 def field(loader):
     return loader.load_field("default")
+
+
+@pytest.fixture
+def baseline_field():
+    """Frozen pre-learning field, so form-dependent tests stay stable as the
+    live field learns each race."""
+    p = Path(__file__).parent / "fixtures" / "baseline_field.json"
+    data = json.loads(p.read_text())
+    return data.get("field", data)
 
 
 # -- scoring ---------------------------------------------------------------- #
@@ -80,13 +92,17 @@ def test_form_bump_moves_proportionately(sonoma, v32, field):
     assert 0 < swing < 20  # proportionate; under v3.1 this was +77
 
 
-def test_form_update_marks_down_the_overrated(sonoma, v32, field):
-    """Larson predicted high but finished 4th -> his form should drop."""
-    probs = L.predicted_probabilities(sonoma, v32, field, n=2000)
+def test_form_update_marks_down_the_overrated(sonoma, v32, baseline_field):
+    """Larson predicted high but finished behind it -> his form should drop.
+
+    Uses the frozen baseline field so the 'overrated' premise holds regardless
+    of what the live field has already learned.
+    """
+    probs = L.predicted_probabilities(sonoma, v32, baseline_field, n=2000)
     rank = L._rank(probs)
     finish = ["Shane van Gisbergen", "Ty Gibbs", "Kyle Larson", "Christopher Bell"]
-    L.update_form(field, finish, rank, "road_form")
-    assert field["Kyle Larson"]["road_form"] < 1.0
+    L.update_form(baseline_field, finish, rank, "road_form")
+    assert baseline_field["Kyle Larson"]["road_form"] < 1.0
 
 
 def test_form_stays_within_bounds(sonoma, v32, field):
