@@ -4,7 +4,7 @@
   "location": "Joliet, Illinois",
   "date": "2026-07-05",
   "week": 19,
-  "race_name": "Chicagoland 400",
+  "race_name": "eero 400",
   "distance_miles": 1.5,
   "laps": 267,
   "physics": {
@@ -12,5 +12,25 @@
     "pit_window_laps": 45,
     "variance_percent": 2.0
   },
-  "context": {"established_track": true}
+  "context": {
+    "established_track": true,
+    "first_race_since": 2019,
+    "in_season_challenge": "Leg 2",
+    "weather": "Race day ~83F, 35% scattered showers; Sat qualifying 75-80% storms (lineup may be set by metric)",
+    "wildcard": "Corey Heim #67 entered (San Diego shock winner)"
+  },
+  "stages": [
+    {
+      "number": 1,
+      "laps": 80
+    },
+    {
+      "number": 2,
+      "laps": 85
+    },
+    {
+      "number": 3,
+      "laps": 102
+    }
+  ]
 }
